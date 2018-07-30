@@ -6,7 +6,7 @@ import ResumeBuilder from '../components/Resumebuilder';
 const AppRouter = (props) => {
     return (
         <BrowserRouter>
-            <div>
+            <div className="app-router-class">
                 <Switch>
                     <Route path="/" component={Dashboard} exact={true} />
                     <Route path="/resume-builder" component={ResumeBuilder} />
