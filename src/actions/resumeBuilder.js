@@ -1,15 +1,66 @@
-export const addPanelInMyCustomTemplate = (uid, name) => {
+export const updateInitialTemplate = () => {
     return {
-        type: 'ADD_PANEL_IN_CT',
-        uid,
-        name
+        type: 'UPDATE_INITIAL'
     }
 }
 
-export const addComponentInPanel = (compId, panelRefId) => {
+export const addComponentInPanel = (compId, panelName) => {
     return {
         type: 'ADD_COMPONENT_IN_PANEL',
         compId,
-        panelRefId
+        panelName
+    }
+}
+
+export const removeComponentFromPanel = (compId, panelName) => {
+    return {
+        type: 'REMOVE_COMPONENT_FROM_PANEL',
+        compId,
+        panelName
+    }
+}
+
+export const updatePersonalInfo = (info, panelName, compId) => {
+    return {
+        type: 'UPDATE_PERSONAL_INFO',
+        info,
+        panelName,
+        compId
+    }
+}
+
+export const addEducationalInfo = (info, panelName, compId) => {
+    return {
+        type: 'ADD_EDUCATIONAL_INFO',
+        info,
+        panelName,
+        compId
+    }
+}
+
+export const updateImageFile = (info, panelName, compId) => {
+    return {
+        type: 'UPDATE_IMAGEFILE_INFO',
+        info,
+        panelName,
+        compId
+    }
+}
+
+export const updateContactInfo = (info, panelName, compId) => {
+    return {
+        type: 'UPDATE_CONTACT_INFO',
+        info,
+        panelName,
+        compId
+    }
+}
+
+export const updateSummary = (info, panelName, compId) => {
+    return {
+        type: 'UPDATE_SUMMARY',
+        info,
+        panelName,
+        compId
     }
 }

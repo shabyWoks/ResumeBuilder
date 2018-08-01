@@ -18,10 +18,12 @@
 }
 
 .resumebuilder__A4{
-    height:89.1rem;
-    width: 63rem;
+    height:118.8rem;
+    width: 84rem;
     background-color: white;
-    box-shadow: 0 0 1rem 1rem black;
+    box-shadow: 0 0 1rem 0.2rem rgb(109, 109, 109);
+    position: absolute;
+    margin: 10rem;
 }
 
 .resumebuilder__structure {
@@ -30,4 +32,16 @@
     background-color: rgb(46, 118, 252);
     border-radius: 0.1rem;
     // border: 0.5rem dashed white;
+}
+
+.btn_vd {
+    width: 25rem;
+    height: 5rem;
+    border: none;
+    background-color: rgb(71, 190, 194);
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 12%;
+    opacity: 0.9
 }
