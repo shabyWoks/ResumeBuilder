@@ -1,0 +1,41 @@
+._pri_body {
+    width: 90%;
+    margin: 1rem 0;
+}
+
+._pri_body_head {
+    font-weight: 500;
+    font-size: 1.6rem;
+    letter-spacing: 0.1rem;
+}
+
+._pri_pro_body{
+    margin: 1rem 0;
+    
+}
+
+._pri_pro_b_title{
+    font-style: italic;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+._pri_pro_b_description{
+    font-size: 1.4rem;
+    font-family: monospace;
+    margin-top: 0.5rem;
+}
+
+._pri_pro_b_key{
+    font-size: 1.4rem;
+    span {
+        font-size: 1.2rem;
+        font-style: italic;
+        padding: 0 0.5rem;
+        background-color: #f7f7f7;
+        margin: 0.2rem 0.5rem;
+        display: inline-block;
+        letter-spacing: .1rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+}

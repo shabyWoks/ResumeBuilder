@@ -64,3 +64,21 @@ export const updateSummary = (info, panelName, compId) => {
         compId
     }
 }
+
+export const addSkill = (info, panelName, compId) => {
+    return {
+        type: 'ADD_SKILL',
+        info,
+        panelName,
+        compId
+    }
+}
+
+export const addProject = (info, panelName, compId) => {
+    return {
+        type: 'ADD_PROJECT',
+        info,
+        panelName,
+        compId
+    }
+}

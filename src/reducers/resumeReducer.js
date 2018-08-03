@@ -4,7 +4,9 @@ const resumeReducerDefault = {
         {id: 2, name: 'Educational Info', qualifications: [{ instname: 'Jadavpur University', degree: 'B.E.', yop: 2018, sod: 'Dept. of Power Engineering' }]},
         {id: 3, name: 'Image Info', imagefile: "" },
         {id: 4, name: 'Contact Info', mob: '0000000000', cc : '000', email: 'abc@xy.z', web: 'www.mno.xy' },
-        {id: 5, name: 'Summary', summary: 'Fresh Full Stack Developer having Internship Experience in Industry. Experienced in competitive programming with good problem solving and handling skills. Exposure of Data Science and Machine Learning is an added bonus.'}
+        {id: 5, name: 'Summary', summary: 'Fresh Full Stack Developer having Internship Experience in Industry. Experienced in competitive programming with good problem solving and handling skills. Exposure of Data Science and Machine Learning is an added bonus.'},
+        {id: 6, name: 'Skills', skillList: [{name: 'Angular', score: 6, outOf: 10}]},
+        {id: 7, name: 'Project Info', projectList : [{ title: 'My Project', description: 'this is my project description', key: ['key 1', 'key 2', 'key 3', 'key 1', 'key 2', 'key 3', 'key 1', 'key 2', 'key 3', 'key 1', 'key 2', 'key 3'] }]}
     ],
     resumeTemplate: [{
         roughClass: 'section temp1_comp1',
@@ -15,7 +17,7 @@ const resumeReducerDefault = {
         roughClass: 'section temp1_comp2',
         actualClass: 'ac1_panel2',
         name: 'left_panel',
-        components: [{ id: 1 }, { id: 5 }, { id: 2 }]
+        components: [{ id: 1 }, { id: 5 }, { id: 2 }, { id: 6 }, {id: 7}]
     }],
     myCustomTemplate: []
 }
@@ -149,6 +151,44 @@ const resumeReducer = (state=resumeReducerDefault, action) => {
                         return { ...panel, components: panel.components.map((component) => {
                             if(component.id === action.compId){
                                 return { ...component, ...action.info};
+                            }
+                            else{
+                                return component;
+                            }
+                        })}
+                    }
+                    else{
+                        return panel;
+                    }
+                })
+            });
+        case 'ADD_SKILL': 
+            return ({
+                ...state,
+                myCustomTemplate: state.myCustomTemplate.map((panel) => {
+                    if(panel.name === action.panelName){
+                        return { ...panel, components: panel.components.map((component) => {
+                            if(component.id === action.compId){
+                                return { ...component, skillList: [ ...component.skillList, action.info]};
+                            }
+                            else{
+                                return component;
+                            }
+                        })}
+                    }
+                    else{
+                        return panel;
+                    }
+                })
+            });
+        case 'ADD_PROJECT': 
+            return ({
+                ...state,
+                myCustomTemplate: state.myCustomTemplate.map((panel) => {
+                    if(panel.name === action.panelName){
+                        return { ...panel, components: panel.components.map((component) => {
+                            if(component.id === action.compId){
+                                return { ...component, projectList: [ ...component.projectList, action.info]};
                             }
                             else{
                                 return component;
