@@ -1,18 +1,23 @@
 const resumeReducerDefault = {
     components: [
         {id: 1, name: 'Personal Info', firstname: 'Shubham', lastname: 'Bhiwaniwala', title: 'Software Developer'},
-        {id: 2, name: 'Educational Info', qualifications: [{ instname: 'Jadavpur University', degree: 'B.E.', yop: 2018, sod: 'Dept. of Power Engineering' }]},
+        {id: 2, name: 'Educational Info', qualifications: [{ instname: 'Jadavpur University', degree: 'B.E.', yop: 2018, sod: 'Dept. of Power Engineering' }, { instname: 'Jadavpur University', degree: 'B.E.', yop: 2018, sod: 'Dept. of Power Engineering' }]},
         {id: 3, name: 'Image Info', imagefile: "" },
         {id: 4, name: 'Contact Info', mob: '0000000000', cc : '000', email: 'abc@xy.z', web: 'www.mno.xy' },
         {id: 5, name: 'Summary', summary: 'Fresh Full Stack Developer having Internship Experience in Industry. Experienced in competitive programming with good problem solving and handling skills. Exposure of Data Science and Machine Learning is an added bonus.'},
-        {id: 6, name: 'Skills', skillList: [{name: 'Angular', score: 6, outOf: 10}]},
-        {id: 7, name: 'Project Info', projectList : [{ title: 'My Project', description: 'this is my project description', key: ['key 1', 'key 2', 'key 3', 'key 1', 'key 2', 'key 3', 'key 1', 'key 2', 'key 3', 'key 1', 'key 2', 'key 3'] }]}
+        {id: 6, name: 'Skills', skillList: [{name: 'Angular', score: 6, outOf: 10}, {name: 'Angular', score: 6, outOf: 10}, {name: 'Angular', score: 6, outOf: 10}, {name: 'Angular', score: 6, outOf: 10}, {name: 'Angular', score: 6, outOf: 10}, {name: 'Angular', score: 6, outOf: 10}, {name: 'Angular', score: 6, outOf: 10}, {name: 'Angular', score: 6, outOf: 10}, {name: 'Angular', score: 6, outOf: 10}]},
+        {id: 7, name: 'Project Info', projectList : [{ title: 'My Project', description: 'this is my project description and it is my project description', key: ['key 1', 'key 2', 'key 3', 'key 4'] }, { title: 'My Project', description: 'this is my project description', key: ['key 1', 'key 2', 'key 3', 'key 4'] }, { title: 'My Project', description: 'this is my project description', key: ['key 1', 'key 2', 'key 3', 'key 4'] }]},
+        {id: 8, name: 'Certification Info', certificationList: [{name: 'Cisco Certified Network Associate', certifiedBy: 'Nasscom', yoc: 2017}, {name: 'Cisco Certified Network Associate', certifiedBy: 'Nasscom', yoc: 2017}]},
+        {id: 9, name: 'Work Experience', workExperiences: [{ fromMonth: 'May', fromYear: 2017, toMonth: 'Jul', toYear: 2017, name: 'Goldman Sachs', position: 'Application Developer'  }]},
+        {id: 10, name: 'Internship Experience'},
+        {id: 11, name: 'Declaration'},
+        {id: 12, name: 'Custom Block'}
     ],
     resumeTemplate: [{
         roughClass: 'section temp1_comp1',
         actualClass: 'ac1_panel1',
         name: 'right_panel',
-        components: [{id: 3}, {id: 4}]
+        components: [{id: 3}, {id: 4}, {id: 8}]
     }, {
         roughClass: 'section temp1_comp2',
         actualClass: 'ac1_panel2',
@@ -53,10 +58,7 @@ const resumeReducer = (state=resumeReducerDefault, action) => {
                     if(panel && panel.name === action.panelName){
                         return {
                             ...panel,
-                            components: panel.components.filter((component) => {
-                                            console.log(component.id !== action.compId);
-                                            return component.id !== action.compId
-                                        })
+                            components: panel.components.filter((component) => component.id !== action.compId)
                         };
                     }
                     else{
@@ -189,6 +191,44 @@ const resumeReducer = (state=resumeReducerDefault, action) => {
                         return { ...panel, components: panel.components.map((component) => {
                             if(component.id === action.compId){
                                 return { ...component, projectList: [ ...component.projectList, action.info]};
+                            }
+                            else{
+                                return component;
+                            }
+                        })}
+                    }
+                    else{
+                        return panel;
+                    }
+                })
+            });
+        case 'ADD_CERTIFICATION': 
+            return ({
+                ...state,
+                myCustomTemplate: state.myCustomTemplate.map((panel) => {
+                    if(panel.name === action.panelName){
+                        return { ...panel, components: panel.components.map((component) => {
+                            if(component.id === action.compId){
+                                return { ...component, certificationList: [ ...component.certificationList, action.info]};
+                            }
+                            else{
+                                return component;
+                            }
+                        })}
+                    }
+                    else{
+                        return panel;
+                    }
+                })
+            });
+        case 'ADD_WORK_EXPERIENCE': 
+            return ({
+                ...state,
+                myCustomTemplate: state.myCustomTemplate.map((panel) => {
+                    if(panel.name === action.panelName){
+                        return { ...panel, components: panel.components.map((component) => {
+                            if(component.id === action.compId){
+                                return { ...component, workExperiences: [ ...component.workExperiences, action.info]};
                             }
                             else{
                                 return component;

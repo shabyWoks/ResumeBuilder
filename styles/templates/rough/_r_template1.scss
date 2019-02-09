@@ -17,6 +17,8 @@
 .section {
     border: 0.5rem dashed white;
     background-color: rgb(85, 85, 85);
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .rough_comp{

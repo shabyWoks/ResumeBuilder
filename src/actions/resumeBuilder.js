@@ -82,3 +82,21 @@ export const addProject = (info, panelName, compId) => {
         compId
     }
 }
+
+export const addCertificate = (info, panelName, compId) => {
+    return {
+        type: 'ADD_CERTIFICATION',
+        info,
+        panelName,
+        compId
+    }
+}
+
+export const addWorkExperience = (info, panelName, compId) => {
+    return {
+        type: 'ADD_WORK_EXPERIENCE',
+        info,
+        panelName,
+        compId
+    }
+}

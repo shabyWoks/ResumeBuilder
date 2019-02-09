@@ -7,6 +7,7 @@ import ContactInfo from './templates/ContactInfo';
 import Summary from './templates/Summary';
 import Skills from './templates/Skills';
 import ProjectInfo from './templates/ProjectInfo';
+import CertificateInfo from './templates/CertificateInfo';
 
 class ResumeDisplay extends React.Component {
 
@@ -32,6 +33,7 @@ class ResumeDisplay extends React.Component {
             else if(component.id === 5) return <Summary info={component} />;
             else if(component.id === 6) return <Skills info={component} />;
             else if(component.id === 7) return <ProjectInfo info={component} />;
+            else if(component.id === 8) return <CertificateInfo info={component} />;
         })
     }
     render() {

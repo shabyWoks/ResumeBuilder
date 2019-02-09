@@ -9,6 +9,8 @@ import EditContactInfo from '../components/templates/EditContactInfo';
 import EditSummary from '../components/templates/EditSummary';
 import EditSkills from '../components/templates/EditSkills';
 import EditProjectInfo from '../components/templates/EditProjectInfo';
+import EditCertificateInfo from '../components/templates/EditCertificateInfo';
+import EditWorkExperience from '../components/templates/EditWorkExperience';
 
 class CustomRoute extends React.Component { 
     
@@ -34,6 +36,12 @@ class CustomRoute extends React.Component {
         }
         else if(id && id === 7){
             return <Route path={this.props.path} component={EditProjectInfo}/>
+        }
+        else if(id && id === 8){
+            return <Route path={this.props.path} component={EditCertificateInfo}/>
+        }
+        else if(id && id === 9){
+            return <Route path={this.props.path} component={EditWorkExperience}/>
         }
         else {
             return <Route path={this.props.path} component={EditEducationalInfo}/>
